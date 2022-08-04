@@ -10,7 +10,7 @@ public class Location {
         this.y = y;
     }
 
-    public Double distance(Location loaction2){
-        return Math.sqrt( Math.pow( this.x - loaction2.x , 2) + Math.pow(this.y - loaction2.y, 2));
+    public Double distance(Location location2){
+        return Math.sqrt( Math.pow( this.x - location2.x , 2) + Math.pow(this.y - location2.y, 2));
     }
 }

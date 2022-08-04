@@ -65,8 +65,8 @@ class Bank{
 
 interface BankService{
    boolean isValidUser(CardInfo cardInfo, String pin);
-   Customer getCustomerDetails(CardInfo);
-   public TransactionDetail executeTransaction;
+  // Customer getCustomerDetails(CardInfo cardInfo);
+  // public TransactionDetail executeTransaction;
 }
 
 enum CardType{
@@ -109,6 +109,6 @@ class ChequeDeposit implements Deposit{
     }
 }
 
-class BankService{
+/**class BankService{
 
-}
+} */
