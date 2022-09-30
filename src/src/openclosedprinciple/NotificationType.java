@@ -1,2 +1,5 @@
-package openclosedprinciple;public enum NotificationType {
+package openclosedprinciple;
+
+public enum NotificationType {
+    SMS, EMAIL;
 }

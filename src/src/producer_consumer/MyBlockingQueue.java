@@ -13,6 +13,7 @@ public class MyBlockingQueue<E> {
     private Object notFull = new Object();
 
 
+
     public MyBlockingQueue(int size){
         queue = new LinkedList<>();
         this.max = size;
@@ -34,5 +35,9 @@ public class MyBlockingQueue<E> {
             E item = queue.poll();
             notFull.notifyAll();
             return item;
+    }
+
+    public static void main(String[] args) {
+
     }
 }

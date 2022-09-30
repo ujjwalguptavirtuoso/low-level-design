@@ -11,16 +11,16 @@ import java.util.UUID;
 
 public class Queue {
 
-    Map<String, TopicHandler> topicProcessors;
+    Map<String, TopicHandler> topicHandlers;
 
     public Queue(){
-        this.topicProcessors = new HashMap<>();
+        this.topicHandlers = new HashMap<>();
     }
 
     Topic createTopic(String topicName){
         Topic topic = new Topic(topicName, UUID.randomUUID().toString());
         TopicHandler topicHandler = new TopicHandler(topic);
-        topicProcessors.put(topic.getTopicId(), topicHandler);
+        topicHandlers.put(topic.getTopicId(), topicHandler);
         return topic;
     }
 
@@ -30,7 +30,10 @@ public class Queue {
 
    void publish(Topic topic, Message message){
         topic.getMessages().add(message);
-       new Thread(() -> topicProcessors.get(topic.getTopicId()).publish()).start();
+        //Thread newThread = new Thread(() -> topicHandlers.get(topic.getTopicId()).publish());
+        //newThread.start();
+       Thread newThread = new Thread(() -> topicHandlers.get(topic.getTopicId()).publish());
+       newThread.start();
    }
 
     public void resetOffset(final Topic topic,final ISubscriber subscriber, final Integer newOffset) {
@@ -38,7 +41,7 @@ public class Queue {
             if (topicSubscriber.getSubscriber().equals(subscriber)) {
                 topicSubscriber.getOffset().set(newOffset);
                 System.out.println(topicSubscriber.getSubscriber().getId() + " offset reset to: " + newOffset);
-                new Thread(() -> topicProcessors.get(topic.getTopicId()).startSubscriberWorker(topicSubscriber)).start();
+                new Thread(() -> topicHandlers.get(topic.getTopicId()).startSubscriberWorker(topicSubscriber)).start();
                 break;
             }
         }

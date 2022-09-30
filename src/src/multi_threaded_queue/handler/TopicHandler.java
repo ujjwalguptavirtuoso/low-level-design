@@ -13,7 +13,7 @@ public class TopicHandler {
 
     public TopicHandler(final Topic topic) {
         this.topic = topic;
-        subscriberWorkers = new HashMap<>();
+        this.subscriberWorkers = new HashMap<>();
     }
 
     public void publish() {
@@ -22,7 +22,7 @@ public class TopicHandler {
         }
     }
 
-    public void startSubscriberWorker( final TopicSubscriber topicSubscriber) {
+    public void startSubscriberWorker(final TopicSubscriber topicSubscriber) {
         final String subscriberId = topicSubscriber.getSubscriber().getId();
         if (!subscriberWorkers.containsKey(subscriberId)) {
             final SubscriberWorker subscriberWorker = new SubscriberWorker(topic, topicSubscriber);

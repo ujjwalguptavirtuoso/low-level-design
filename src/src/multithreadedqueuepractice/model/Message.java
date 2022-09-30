@@ -1,2 +1,4 @@
-package multithreadedqueuepractice.model;public class Message {
+package multithreadedqueuepractice.model;
+
+public class Message {
 }

@@ -16,7 +16,7 @@ public class Booking {
     private BookingStatus bookingStatus;
 
 
-    public Booking(String id, Show show, List<Seat> seatsBooked, String userId, BookingStatus bookingStatus) {
+    public Booking(String id, Show show, List<Seat> seatsBooked, String userId) {
         this.id = id;
         this.show = show;
         this.seatsBooked = new ArrayList<>();

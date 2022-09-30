@@ -64,6 +64,14 @@ public class TheatreService {
         return theatreMap.get(theatreId);
     }
 
+    public Seat getSeat(String seatId){
+        if(seatMap.get(seatId) == null){
+            //throw seat not found exception
+        }
+
+        return seatMap.get(seatId);
+    }
+
 
 
 }

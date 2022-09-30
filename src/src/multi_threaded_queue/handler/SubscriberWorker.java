@@ -4,7 +4,7 @@ import multi_threaded_queue.model.Message;
 import multi_threaded_queue.model.Topic;
 import multi_threaded_queue.model.TopicSubscriber;
 
-public class SubscriberWorker implements  Runnable{
+public class SubscriberWorker implements Runnable{
 
     private final Topic topic;
     private final TopicSubscriber topicSubscriber;
@@ -39,7 +39,7 @@ public class SubscriberWorker implements  Runnable{
 
     synchronized public void wakeUpIfNeeded() {
         synchronized (topicSubscriber) {
-            topicSubscriber.notify();
+            topicSubscriber.notifyAll();
         }
     }
 }

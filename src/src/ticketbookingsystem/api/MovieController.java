@@ -1,2 +1,4 @@
-package ticketbookingsystem.api;public class MovieController {
+package ticketbookingsystem.api;
+
+public class MovieController {
 }
